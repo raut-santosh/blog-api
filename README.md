@@ -29,8 +29,7 @@ This is a RESTful API for managing blog posts.
 
 ### Prerequisites
 
-- Node.js (version X.X.X)
-- MongoDB (version X.X.X)
+- Node.js (version 18.16.0)
 
 ### Installation
 
