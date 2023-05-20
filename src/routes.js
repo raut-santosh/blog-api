@@ -28,6 +28,7 @@ module.exports = function (app) {
     app.post('/auth/resendotp', authController.resendOtp);
     app.get('/blog/list', blogController.list);
     app.post('/blog/addedit', authMiddleware, blogController.addedit);
+    app.delete('/blog/delete', authMiddleware, blogController.deleteBlog);
 
 
     // app.post("/upload", upload.single("file"), fileController.fileUpload);

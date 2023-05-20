@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     next();
   } catch (e) {
     return res.status(401).json({
-      message: "Your not logged in",
+      msg: "Your not logged in",
     });
   }
 };
