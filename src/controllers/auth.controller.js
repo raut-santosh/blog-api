@@ -74,9 +74,12 @@ exports.verifyOtp = async (req,res) => {
         const token = jwt.sign(
           {
             _id: user._id,
+            idseq: user.idseq,
             name: user.name,
             email: user.email,
-            userId: user._id,
+            is_verified: user.is_verified,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
           },
           process.env.JWT_KEY,
           {

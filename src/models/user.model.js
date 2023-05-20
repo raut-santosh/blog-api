@@ -18,6 +18,7 @@ const userSchema = mongoose.Schema(
     },
     otp: { type: Number },
     is_verified: { type: Boolean, default: false },
+    likedBlogs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Blog' }],
     password: {
       type: String,
       required: true,

@@ -2,7 +2,8 @@ const fileController = require('./controllers/file.controller');
 const upload = require('./helpers/fileUpload.helper');
 const otherController = require('./controllers/other.controller');
 const authController = require('./controllers/auth.controller');
-
+const blogController = require('./controllers/blog.controller');
+const authMiddleware = require('./middlewares/auth.middleware');
 
 module.exports = function (app) {
 
@@ -25,6 +26,8 @@ module.exports = function (app) {
     app.post('/auth/register', authController.registerUser);
     app.post('/auth/verifyotp', authController.verifyOtp);
     app.post('/auth/resendotp', authController.resendOtp);
+    app.get('/blog/list', blogController.list);
+    app.post('/blog/addedit', authMiddleware, blogController.addedit);
 
 
     // app.post("/upload", upload.single("file"), fileController.fileUpload);
