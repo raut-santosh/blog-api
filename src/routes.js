@@ -48,6 +48,18 @@ module.exports = function (app) {
                     token: "string"
                 }
             },
+            login:{
+                type: "POST",
+                url: req.get('host') + '/auth/login',
+                requestBody: {
+                    email: "string",
+                    password: "string"
+                },
+                response: {
+                    msg: "string",
+                    token: "string"
+                }
+            },
             resendOtp:{
                 type: "POST",
                 url: req.get('host') + '/auth/resendotp',
