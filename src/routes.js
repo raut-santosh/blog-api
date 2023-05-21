@@ -22,7 +22,66 @@ module.exports = function (app) {
     });
 
 
-    app.get('', (req, res) => res.json({ msg: 'hello world!' }));
+    app.get('', (req, res) => res.json({ 
+        message: 'Welcome to the Blog API',
+        version: '1.0.0',
+        routes: {
+            registerUser:{
+                type: "POST",
+                url: req.get('host') + '/auth/register',
+                requestBody: {
+                    name: "string",
+                    email: "string",
+                    password: "string"
+                }
+            },
+            verifyOtp:{
+                type: "POST",
+                url: req.get('host') + '/auth/verifyotp',
+                requestBody: {
+                    email: "string",
+                    otp: "string",
+                    password: "string"
+                },
+                response: {
+                    msg: "string",
+                    token: "string"
+                }
+            },
+            resendOtp:{
+                type: "POST",
+                url: req.get('host') + '/auth/resendotp',
+                requestBody: {
+                    email: "string",
+                    password: "string"
+                }
+            },
+            blogList: {
+                type: "GET",
+                url: req.get('host') + '/blog/list',
+                response: {
+                    data: "array"
+                }
+            },
+            blogAddEdit: {
+                type: "POST",
+                url: req.get('host') + '/blog/addedit',
+                requestBody: {
+                    title: "string",
+                    content: "string",
+                    files: "array of objects",
+                    author: "_id of user",
+                    comments: "array of objects",
+                    likes: "number",
+                    tags: "array"
+                },
+                response: {
+                    msg: "string"
+                }
+            }
+        },
+     }));
+
     app.post('/auth/register', authController.registerUser);
     app.post('/auth/verifyotp', authController.verifyOtp);
     app.post('/auth/resendotp', authController.resendOtp);
