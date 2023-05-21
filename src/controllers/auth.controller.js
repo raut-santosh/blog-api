@@ -21,7 +21,7 @@ const isOtpExpired = (user) => {
   const minutesDiff = currentTime.diff(updatedAt, 'minutes');
 
   // Check if the difference is greater than or equal to 5 minutes
-  if (minutesDiff >= 5) {
+  if (minutesDiff >= 1) {
     return true; // OTP has expired
   } else {
     return false; // OTP is still valid
