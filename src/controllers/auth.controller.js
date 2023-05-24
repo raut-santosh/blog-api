@@ -161,7 +161,7 @@ exports.login = async (req,res) => {
         });
         return res.status(200).json({msg: 'Login successful',token:token});
       }else{
-        return res.status(400).json({'msg': 'Invalid OTP'})
+        return res.status(400).json({'msg': 'User Email Not Verified'})
       }
     }else{
       return res.status(400).json({'msg': 'Invalid Password'})

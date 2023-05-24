@@ -95,6 +95,7 @@ module.exports = function (app) {
      }));
 
     app.post('/auth/register', authController.registerUser);
+    app.post('/auth/login', authController.login);
     app.post('/auth/verifyotp', authController.verifyOtp);
     app.post('/auth/resendotp', authController.resendOtp);
     app.get('/blog/list', blogController.list);
